@@ -1,10 +1,18 @@
 function lowerOrUpper(params) {
-    
-    let upper = params.toUpperCase();
+      /*
+      let upper = params.toUpperCase();
+  
+      if (params === upper) {
+          console.log('upper-case');
+      }else{
+          console.log('lower-case');
+      }
+      */
+    let code = params.charCodeAt();
 
-    if (params === upper) {
+    if (code >= 65 && code <= 90) {
         console.log('upper-case');
-    }else{
+    } else {
         console.log('lower-case');
     }
 
