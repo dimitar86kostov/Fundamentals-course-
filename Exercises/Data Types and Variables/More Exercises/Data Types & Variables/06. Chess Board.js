@@ -1,5 +1,5 @@
 function chessBoard(num) {
-
+/*
     console.log('<div class="chessboard">');
 
     for (let row = 1; row <= num; row   ++) {
@@ -24,6 +24,23 @@ function chessBoard(num) {
         }
         console.log('</div>')
     }
-    console.log('</div>');
+    console.log('</div>')
+    */
+
+    let result = '<div class="chessboard">\n';
+
+    for (let i = 0; i < num; i++) {
+        let row = '';
+        row += '  <div>\n';
+        for (let j = 0; j < num; j++) {
+            let color = (i + j) % 2? 'white' : 'black';
+            row += `    <span class=${color}></span>\n`
+            
+        }
+        row += '  </div>\n';
+        result += row;
+    }
+   result += '</div>\n'
+   console.log(result);
 }
 chessBoard(3)
