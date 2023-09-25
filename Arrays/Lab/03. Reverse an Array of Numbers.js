@@ -1,9 +1,14 @@
 function reverseAnArrayOfNumbers(n, arr) {
+    let newArr = [];
 
-    let newArr = arr.reverse(n)
+    for (let j = 0; j < n; j++) {
+        let el = newArr.push(arr[j]);
+    }
+    let output = newArr.reverse(n)
     let buff = '';
-    for (let i = newArr.length - 1; i >= (newArr.length - n); i--) {
-        buff += `${newArr[i]} `
+
+    for (let i = 0; i <= output.length - 1; i++) {
+            buff += `${output[i]} `
 
     }
     console.log(buff);
