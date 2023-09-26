@@ -1,5 +1,5 @@
 function condenseArrayToNumber(arr) {
-    let newArr = [];
+    /*
     if (arr.length === 1) {
         console.log(arr[0]);
         return;
@@ -21,8 +21,18 @@ function condenseArrayToNumber(arr) {
         }
         newArr = loopArr;
     }
+    */
+    let newArr = [];
 
+    while (arr.length > 1) {
+        for (let i = 0; i < arr.length - 1; i++) {
+            newArr[i] = arr[i] + arr[i + 1];
+        }
+        arr = newArr;
+        newArr = [];
+    }
+    console.log(arr.join())
 }
-condenseArrayToNumber([1])
-condenseArrayToNumber([2, 10, 3])
 condenseArrayToNumber([5, 0, 4, 1, 2])
+condenseArrayToNumber([2, 10, 3])
+condenseArrayToNumber([1])
