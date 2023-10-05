@@ -15,3 +15,6 @@ div {display: inline-block;}
 .orange{
     background-color: orange;
 }
+.container{
+    width: 100px;
+}
