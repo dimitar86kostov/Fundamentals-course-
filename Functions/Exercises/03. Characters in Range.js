@@ -15,14 +15,14 @@ function charactersInRange(char1, char2) {
         result = normal(char1, char2);
     }
 
-    function oposit(str1,str2) {
+    function oposit() {
         for (let i = end + 1; i < start; i++) {
             let currChar = i.toString();
             result += `${String.fromCharCode(currChar)} `;
         }
         return result;
     }
-    function normal(str1,str2) {
+    function normal() {
         for (let i = start + 1; i < end; i++) {
             let currChar = i.toString();
             result += `${String.fromCharCode(currChar)} `;

@@ -3,15 +3,7 @@ function oddAndEvenSum(number) {
     let evenSum = 0;
     let numStr = String(number);
 
-    for (let i = 0; i < numStr.length; i++) {
-        if (numStr[i] % 2 !== 0) {
-           oddSum += Number(numStr[i]);
-        }else{
-            evenSum += Number(numStr[i]);
-        }
-   }
-/*
-function odd(num) {
+function odd() {
     for (let i = 0; i < numStr.length; i++) {
          if (numStr[i] % 2 !== 0) {
             oddSum += Number(numStr[i]);
@@ -19,7 +11,7 @@ function odd(num) {
     }
     return oddSum;
 }
-function even(num) {
+function even() {
     for (let i = 0; i < numStr.length; i++) {
          if (numStr[i] % 2 === 0) {
             evenSum += Number(numStr[i]);
@@ -27,10 +19,10 @@ function even(num) {
     }
     return evenSum;
 }
-let totalOdd = odd(n);
-let totalEven = even(n);
-*/
-console.log(`Odd sum = ${oddSum}, Even sum = ${evenSum}`);
+let totalOdd = odd(number);
+let totalEven = even(number);
+
+console.log(`Odd sum = ${totalOdd}, Even sum = ${totalEven}`);
 }
 oddAndEvenSum(1000435);
 oddAndEvenSum(3495892137259234);
