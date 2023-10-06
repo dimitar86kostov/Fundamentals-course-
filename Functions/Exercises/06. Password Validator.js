@@ -1,12 +1,12 @@
 function passwordValidator(pass) {
-    let notOnlyLetterAndDigits = false;
-
+    
     let lengthRule = function () {
         return (pass.length >= 6 && pass.length <= 10);
     }
-
+    
     let letterRule = function () {
-
+        
+        let notOnlyLetterAndDigits = false;
         for (let i = 0; i < pass.length; i++) {
             const el = pass[i];
             if (el.charCodeAt() < 48 || el.charCodeAt() > 57 && el.charCodeAt() < 65 || el.charCodeAt() > 90 && el.charCodeAt() < 97) {

@@ -14,7 +14,6 @@ function charactersInRange(char1, char2) {
     } else {
         result = normal(char1, char2);
     }
-
     function oposit() {
         for (let i = end + 1; i < start; i++) {
             let currChar = i.toString();
@@ -29,9 +28,15 @@ function charactersInRange(char1, char2) {
         }
         return result;
     }
-
     console.log(result);
 }
 charactersInRange('C', '#');
 charactersInRange('a', 'd');
 charactersInRange('#', ':');
+
+// let min = Math.min(start, end);
+// let max = Math.max(start, end)
+// for (let i = min + 1; i < max; i++) {
+//     let currChar = i.toString();
+//     result += `${String.fromCharCode(currChar)} `;
+// }
