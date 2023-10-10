@@ -1,6 +1,6 @@
 function listOfProducts(array) {
 
-    let sorted = array.sort((a, b) => a.localeCompare(b));
+    let sorted = array.sort();
 
     for (let i = 0; i < sorted.length; i++) {
 
