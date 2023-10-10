@@ -1,6 +1,6 @@
 function tseamAccount(arrAccount) {
     let arrGames = [];
-    let commGames = [];
+    let commArrGames = [];
     let arrCommands = [];
     let currentEl = '';
     let isExpansion = false;
@@ -10,82 +10,106 @@ function tseamAccount(arrAccount) {
 
     for (let main = 0; main < arrAccount.length; main++) {
         let element = arrAccount[main];
-        if (typeof(element) !== 'string') {
-           element = element.toString()
+        if (typeof (element) !== 'string') {
+            element = element.toString()
         }
         if (element === 'Play!') {
             break;
         }
         if (main === 0) {
 
-            for (let g = 0; g < element.length; g++) {
-                let digit = element[g];
+            function extractGames() {
+                for (let g = 0; g < element.length; g++) {
+                    let digit = element[g];
 
-                if (digit !== ' ') {
-                    currentEl += digit;
-                    if (g === element.length - 1) {
+                    if (digit !== ' ') {
+                        currentEl += digit;
+                        if (g === element.length - 1) {
+                            arrGames.push(currentEl);
+                            currentEl = '';
+                        }
+                    } else {
                         arrGames.push(currentEl);
                         currentEl = '';
                     }
-                } else {
-                    arrGames.push(currentEl);
-                    currentEl = '';
                 }
+                return arrGames;
             }
+            arrGames = extractGames(element);
         } else {
 
-            for (let comm = 0; comm < element.length; comm++) {
-                let curComm = element[comm];
+            function extractCommands() {
+                for (let comm = 0; comm < element.length; comm++) {
+                    let curComm = element[comm];
 
-                if (curComm !== ' ') {
-                    if (isExpansion) {
-                        expandedGame += curComm;
+                    if (curComm !== ' ') {
+                        if (isExpansion) {
+                            expandedGame += curComm;
 
-                    } else if (curComm === '-') {
-                        isExpansion = true;
-                        beforExpGame = currentEl
-                        continue;
-                    } else if (comm === element.length - 1) {
+                        } else if (curComm === '-') {
+                            isExpansion = true;
+                            beforExpGame = currentEl
+                            continue;
+                        } else if (comm === element.length - 1) {
+                            currentEl += curComm;
+                            commArrGames.push(currentEl)
+                            currentEl = '';
+                            continue;
+                        }
                         currentEl += curComm;
-                        commGames.push(currentEl)
-                        currentEl = '';
-                        continue;
-                    }
-                    currentEl += curComm;
 
-                } else {
-                    arrCommands.push(currentEl);
-                    currentEl = '';
+                    } else {
+                        arrCommands.push(currentEl);
+                        currentEl = '';
+                    }
                 }
+                return commArrGames, arrCommands;
             }
+            commArrGames, arrCommands = extractCommands(element);
         }
     }
     for (let i = 0; i < arrCommands.length; i++) {
         let command = arrCommands[i];
         switch (command) {
             case 'Install':
-                if (arrGames.includes(commGames[i])) {
-                    continue;
-                } else {
-                    arrGames.push(commGames[i]);
-                };
+                let install = function () {
+                    if (arrGames.includes(commArrGames[i])) {
+                    } else {
+                        arrGames.push(commArrGames[i]);
+                        return arrGames;
+                    }
+                }
+                arrGames = install(command);
                 break;
             case 'Uninstall':
-                if (arrGames.includes(commGames[i])) {
-                    arrGames.splice(arrGames.indexOf(commGames[i]), 1)
-                };
+                let uninstall = function () {
+                    if (arrGames.includes(commArrGames[i])) {
+                        arrGames.splice(arrGames.indexOf(commArrGames[i]), 1)
+                        return arrGames;
+                    }
+                }
+                arrGames = uninstall(command)
+                break;
             case 'Update':
-                if (arrGames.includes(commGames[i])) {
-                    arrGames.splice(arrGames.indexOf(commGames[i]), 1);
-                    arrGames.push(commGames[i]);
-                };
+                let update = function () {
+                    if (arrGames.includes(commArrGames[i])) {
+                        arrGames.splice(arrGames.indexOf(commArrGames[i]), 1);
+                        arrGames.push(commArrGames[i]);
+                        return arrGames;
+                    }
+                }
+                arrGames = update(command)
                 break;
             case 'Expansion':
-                if (arrGames.includes(beforExpGame)) {
-                    arrGames.push(beforExpGame);
-                    arrGames.splice(1, 0, `${beforExpGame}:${expandedGame}`);
-                    arrGames.pop();
+                let expansion = function () {
+                    if (arrGames.includes(beforExpGame)) {
+                        arrGames.push(beforExpGame);
+                        arrGames.splice(1, 0, `${beforExpGame}:${expandedGame}`);
+                        arrGames.pop();
+                        return arrGames;
+                    }
                 }
+                arrGames = expansion(command)
                 break;
         }
     }
