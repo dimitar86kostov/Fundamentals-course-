@@ -1,5 +1,5 @@
 function arrayManipulations(input) {
-    /*
+    
         let array = [];
         let arrStr = input.shift();
         let extractArray = function () {
@@ -75,19 +75,15 @@ function arrayManipulations(input) {
             }
             return array;
         }
-    
         let result = commands(input);
     
-        let finalResultStr = function () {
-            let print = '';
-            for (const el of result) {
-                print += el + ' ';
-            }
-            return print;
-        }
-    
-        console.log(finalResultStr(result));
-    */
+        console.log(result.join(' '));
+}
+
+arrayManipulations(['6 12 2 65 6 42', // output: 6 2 6 65 42 8
+    'Add 8', 'Remove 12', 'RemoveAt 3', 'Insert 6 2'])
+
+/*
     let array = input
         .shift()
         .split(' ')
@@ -118,8 +114,4 @@ function arrayManipulations(input) {
         }
     }
 console.log(array.join(' '));
-}
-// arrayManipulations(['4 19 2 53 6 43',
-//     'Add 3', 'Remove 2', 'RemoveAt 1', 'Insert 8 3'])
-arrayManipulations(['6 12 2 65 6 42',
-    'Add 8', 'Remove 12', 'RemoveAt 3', 'Insert 6 2'])
+*/

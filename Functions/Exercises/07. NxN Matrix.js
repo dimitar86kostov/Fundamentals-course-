@@ -14,5 +14,10 @@ function NxNMatrix(n) {
         console.log(printMatrix(n));
     }
 
+    // for (let rowNum = 0; rowNum < array.length; rowNum++) {
+    //     let curRow = `${n} `.repeat(n);
+    //     console.log(curRow);
+    // }
+
 }
 NxNMatrix(7)

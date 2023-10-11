@@ -17,6 +17,9 @@ function smallestOfThreeNumbers(num1, num2, num3) {
     function isSmallest3(number1, number2, number3) {
         return number3 <= number2 && number3 <= number1;
     }
+    
+    // let minNum = Math.min(num1, num2, num3)
+    // console.log(minNum)
 }
 smallestOfThreeNumbers(2,
     5,
