@@ -2,34 +2,39 @@ function arrayManipulator(array, commands) {
 
     for (const el of commands) {
 
-        let [comm, param1, param2] = el.split(' ');
-        param1 = Number(param1);
-        param2 = Number(param2);
+        let command = el.split(' ');
+        let action = command[0];
+        
 
-        switch (comm) {
+        switch (action) {
             case 'add':
-                array.splice(param1, 0, param2);
+                let index = Number(command[1]);
+                let num = Number(command[2]);
+                array.splice(index, 0, num);
                 break;
             case 'contains':
-                console.log(array.indexOf(param1));
+                let number = Number(command[1])
+                console.log(array.indexOf(number));
                 break;
             case 'addMany':
-                let splited = el
-                    .split(' ')
-                    .map(Number);
-                splited.shift();
-                splited.shift();
-
-                for (let index = splited.length - 1; index >= 0; index--) {
-                    array.splice(param1, 0, splited[index]);
+                let idx = command[1];
+                let numsToAdd = command.slice(2,);
+                for (const el of numsToAdd) {
+                    array.splice(idx, 0, Number(el));
+                    idx++;
                 }
                 break;
             case 'remove':
-                array.splice(param1, 1);
+                let x = Number(command[1])
+                array.splice(x, 1);
                 break;
             case 'shift':
-                array.shift();
-                array.push(param1);
+                let n = Number(command[1]);
+                for (let i = 0; i < n; i++) {
+                    let firstEl = array.shift();
+                    array.push(firstEl);
+                }
+            
                 break;
             case 'sumPairs':
                 let newArr = array.slice();
@@ -57,7 +62,7 @@ function arrayManipulator(array, commands) {
 }
 
 
- arrayManipulator([1, 2, 4, 5, 6, 7],
-     ['add 1 8', 'contains 1', 'contains 3', 'prisnt'])
-// arrayManipulator([1, 2, 3, 4, 5],
-//     ['addMany 5 9 8 7 6 5', 'contains 15', 'remove 3', 'shift 1', 'print'])
+//  arrayManipulator([1, 2, 4, 5, 6, 7],
+//      ['add 1 8', 'contains 1', 'contains 3', 'prisnt'])
+arrayManipulator([1, 2, 3, 4, 5],
+    ['addMany 5 9 8 7 6 5', 'contains 15', 'remove 3', 'shift 1 2 3', 'print'])

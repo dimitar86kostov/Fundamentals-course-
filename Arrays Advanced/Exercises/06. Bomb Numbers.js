@@ -9,7 +9,7 @@ function bombNumbers(seq, detonator) {
 
         if (element === bomb) {
             
-            seq.splice(i - power, i + power);
+            seq.splice(Math.max(i - power, 0), i + power, 0);
         }
     }
     for (const el of seq) {
