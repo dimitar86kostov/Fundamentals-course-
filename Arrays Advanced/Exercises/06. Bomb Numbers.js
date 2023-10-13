@@ -1,5 +1,4 @@
 function bombNumbers(seq, detonator) {
-    let newArr = seq.slice();
 
     let bomb = detonator[0];
     let power = detonator[1];
