@@ -1,31 +1,15 @@
 function distinctArray(array) {
-    let distincted = array.slice();
-    let result = '';
+    let uniqueNums = [];
 
-    function distinction(array) {
-        for (let j = 0; j < array.length; j++) {
-            let el = array[j];
-
-            for (let i = j + 1; i < distincted.length; i++) {
-                const next = distincted[i];
-
-                if (el === next) {
-                    distincted.splice(i, 1)
-
-                }
-            }
-
+    for (const el of array) {
+        if (!uniqueNums.includes(el)) {
+            uniqueNums.push(el);
         }
-        return distincted
-    }
-    if (distincted.length < 3) {
-        result = distinction(distincted);
-    } else {
-        result = distinction(distincted);
     }
 
-    console.log(result.join(' '));
+console.log(uniqueNums.join(' '));
+
 }
 distinctArray([7, 8, 9, 7, 2, 3, 4, 1, 2])
 distinctArray([2, 2])
-distinctArray([1,2,3,4,5])
+distinctArray([1, 2, 3, 4, 5])
