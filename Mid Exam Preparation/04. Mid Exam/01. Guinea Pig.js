@@ -26,7 +26,7 @@ function guineaPig(params) {
     food /= 1000;
     hay /= 1000;
     cover /= 1000;
-    if (food >= 0 && hay >= 0 && cover >= 0) {
+    if (food >= 0 || hay >= 0 || cover >= 0) {
         console.log(`Everything is fine! Puppy is happy! Food: ${food.toFixed(2)}, Hay: ${hay.toFixed(2)}, Cover: ${cover.toFixed(2)}.`);
     }else{
         console.log(`Merry must go to the pet store!`);
