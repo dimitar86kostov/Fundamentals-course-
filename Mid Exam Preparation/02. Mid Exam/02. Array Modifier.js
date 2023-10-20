@@ -51,7 +51,3 @@ arrayModifier([
     'decrease',
     'end'
 ]);
-//   let swaped1 = arr.slice(i1, i1 + 1);
-//             let swaped2 = arr.slice(i2, i2 + 1);
-//             arr[i2] = swaped1.shift();
-//             arr[i1] = swaped2.shift();
