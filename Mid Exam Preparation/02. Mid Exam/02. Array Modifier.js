@@ -4,7 +4,7 @@ function arrayModifier(input) {
         .split(' ')
         .map(Number);
 
-    let finalResult = [];
+    
     let [comm, i1, i2] = input.shift().split(' ');
 
     while (comm !== 'end') {
@@ -25,12 +25,12 @@ function arrayModifier(input) {
             }
 
         } else if (comm == 'decrease') {
-            finalResult = arr.map((x) => x - 1);
+            arr = arr.map((x) => x - 1);
         }
 
         [comm, i1, i2] = input.shift().split(' ');
     }
-    console.log(finalResult.join(', '));
+    console.log(arr.join(', '));
 }
 arrayModifier([
     '23 -2 321 87 42 90 -123',
@@ -51,7 +51,3 @@ arrayModifier([
     'decrease',
     'end'
 ]);
-//   let swaped1 = arr.slice(i1, i1 + 1);
-//             let swaped2 = arr.slice(i2, i2 + 1);
-//             arr[i2] = swaped1.shift();
-//             arr[i1] = swaped2.shift();
