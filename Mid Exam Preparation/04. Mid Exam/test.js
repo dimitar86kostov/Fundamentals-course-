@@ -1,6 +1,0 @@
-function solve(input) {
-
-}
- 
- 
-solve()
