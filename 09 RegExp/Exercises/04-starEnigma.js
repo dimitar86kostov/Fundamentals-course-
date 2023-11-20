@@ -2,9 +2,10 @@ function starEnigma(params) {
 
     let n = params.shift();
     let arr = [];
-
+    
+    let decrypt = /[star]/gi;
+    
     for (let i = 0; i < n; i++) {
-        let decrypt = /[star]/gi;
         let match = params[i].match(decrypt);
         let result = '';
         
@@ -15,7 +16,7 @@ function starEnigma(params) {
                 result += String.fromCharCode(newChar);
             }
         } else {
-            result = decrypt;
+            result = params[i];
         }
         arr.push(result);
     }
@@ -44,7 +45,7 @@ function starEnigma(params) {
     for (const planet of atacked) {
         console.log(`-> ${planet}`);
     }
-
+    
     console.log(`Destroyed planets: ${destroyed.length}`);
 
     for (const planet of destroyed) {
