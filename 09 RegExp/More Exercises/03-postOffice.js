@@ -37,6 +37,7 @@ function postOffice(params) {
         let [code, len] = el.split(':');
         let currLetter = String.fromCharCode(code);
         len = Number(len) + 1;
+
         for (const word of words) {
             if (word[0] == currLetter && word.length == len) {
                 console.log(word);
