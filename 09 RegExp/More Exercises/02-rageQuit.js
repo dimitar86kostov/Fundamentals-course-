@@ -1,4 +1,4 @@
-function rageQuit(input) {
+function rageQuit([input]) {
 
     let wordPattern = /[^0-9]+/g;
     let digitPattern = /[0-9]+/g;
@@ -27,5 +27,5 @@ function rageQuit(input) {
     console.log(`Unique symbols used: ${unique.length}`);
     console.log(rage);
 }
-rageQuit('a3')
-rageQuit('aSd2&5s@1')
+rageQuit(['a3'])
+rageQuit(['aSd2&5s@1'])
