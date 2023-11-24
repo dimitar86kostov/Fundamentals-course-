@@ -1,24 +1,35 @@
 function melrahShake(params) {
 
-    let pattern = params.pop();
+    let str = params[0];
+    let pattern = params[1];
 
-    let str = params.toString();
-    let matches = 0;
 
-    while (str.includes(pattern)) {
-        matches++
 
-        let startIdx = str.indexOf(pattern);
-        let endIdx = startIdx + pattern.length;
+    while (pattern.length > 0) {
 
-        let firstPart = str.slice(0, startIdx);
-        let secondPart = str.slice(endIdx);
-        str = firstPart + secondPart;
+        let start = str.indexOf(pattern);
+        let end = str.lastIndexOf(pattern);
+
+        if ((start != -1 && end != -1) && start != end) {
+
+            let firstRemove = str.slice(0, start);
+            let middleRemove = str.slice(start + pattern.length, end);
+            let lastRemove = str.slice(end + pattern.length);
+            str = firstRemove + middleRemove + lastRemove;
+
+            console.log('Shaked it.');
+        } else {
+            break;
+        }
+
+        let index = Math.floor(pattern.length / 2);
+        pattern = pattern.replace(pattern[index], '');
+
     }
-if (matches >= 2) {
-    
+    console.log('No shake.');
+    console.log(str);
 }
-}
+
 melrahShake(['astalavista baby',
     'sta']
 );
